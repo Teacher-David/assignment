@@ -241,7 +241,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 studentFeedbackElement.innerHTML = `
                     <div class="w-32 flex-shrink-0">
                         <div class="font-medium text-gray-900">${student.name}</div>
-                        // <div class="text-sm text-gray-500">${student.phoneNumber}</div>
                     </div>
                     <div class="flex-1">
                         <textarea 
