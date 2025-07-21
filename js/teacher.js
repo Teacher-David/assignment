@@ -31,39 +31,53 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.getElementById('successMessage');
     const successText = document.getElementById('successText');
     const errorMessage = document.getElementById('errorMessage');
-    const errorText = document.getElementById('errorText');
-
-    // Firebase 라이브러리 로딩 확인
-    function waitForFirebase() {
+    const errorText = document.getElementById('errorText');    // Firebase 라이브러리 로딩 확인
+    async function waitForFirebase() {
+        // firebase-config.js의 초기화 함수 사용
+        if (typeof window.waitForFirebaseInit === 'function') {
+            try {
+                await window.waitForFirebaseInit();
+                return window.auth !== undefined && window.db !== undefined;
+            } catch (error) {
+                console.error('Firebase 초기화 실패:', error);
+                return false;
+            }
+        }
+        
+        // 백업 방식: 직접 확인
         return new Promise((resolve) => {
             if (window.auth && window.db) {
-                resolve();
+                resolve(true);
                 return;
             }
             
-            // Firebase가 로드될 때까지 대기
+            let attempts = 0;
+            const maxAttempts = 100; // 10초 (100ms * 100)
+            
             const checkFirebase = setInterval(() => {
+                attempts++;
+                
                 if (window.auth && window.db) {
                     clearInterval(checkFirebase);
-                    resolve();
+                    resolve(true);
+                    return;
+                }
+                
+                if (attempts >= maxAttempts) {
+                    clearInterval(checkFirebase);
+                    console.error('Firebase 로딩 타임아웃');
+                    resolve(false);
                 }
             }, 100);
-            
-            // 5초 후 타임아웃
-            setTimeout(() => {
-                clearInterval(checkFirebase);
-                console.error('Firebase 로딩 타임아웃');
-                resolve();
-            }, 5000);
         });
-    }
-
-    // Firebase 로딩 완료 후 초기화
-    waitForFirebase().then(() => {
-        if (!window.auth || !window.db) {
+    }    // Firebase 로딩 완료 후 초기화
+    waitForFirebase().then((success) => {
+        if (!success || !window.auth || !window.db) {
             console.error('Firebase 초기화 실패');
             return;
         }
+
+        console.log('Firebase 시스템 준비 완료');
 
         // 인증 상태 확인
         window.auth.onAuthStateChanged(user => {

@@ -6,13 +6,13 @@
     <title>교사 로그인 - 영재교육원 피드백 시스템</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Firebase v8 라이브러리 (안정적) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-app.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-auth.js"></script>
+      <!-- Firebase v8 라이브러리 (동기 로딩) -->
+    <script src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-firestore.js"></script>
     
     <!-- Firebase 설정 -->
-    <script defer src="js/firebase-config.js"></script>
+    <script src="js/firebase-config.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen flex items-center justify-center">
     <div class="max-w-md w-full mx-4">
@@ -79,9 +79,9 @@
         </div>
 
         <!-- 돌아가기 링크 -->
-        <div class="text-center mt-6">
+        <!-- <div class="text-center mt-6">
             <a href="index.html" class="text-blue-600 hover:text-blue-800 text-sm">← 학생 페이지로 돌아가기</a>
-        </div>
+        </div> -->
     </div>
 
     <script src="js/auth.js"></script>

@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>영재교육원 피드백 시스템</title>
+    <title>2025 영재교육원</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Firebase v8 라이브러리 (안정적) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-app.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-auth.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-firestore.js"></script>
+      <!-- Firebase v8 라이브러리 (동기 로딩) -->
+    <script src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/firebase@8.10.0/firebase-firestore.js"></script>
     
     <!-- Firebase 설정 -->
-    <script defer src="js/firebase-config.js"></script>
+    <script src="js/firebase-config.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <div class="container mx-auto px-4 py-8">
@@ -29,7 +28,7 @@
 
         <!-- 헤더 -->
         <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-blue-600 mb-2">영재교육원 피드백 시스템</h1>
+            <h1 class="text-3xl font-bold text-blue-600 mb-2">2025 강남서초영재교육원 수과융합과정</h1>
             <p class="text-gray-600">이름과 전화번호를 입력하여 피드백을 확인하세요</p>
         </div>
 
@@ -64,7 +63,7 @@
                         placeholder="01012345678"
                         maxlength="11"
                     >
-                    <p class="text-xs text-gray-500 mt-1">형식: 01012345678 (대시 없이)</p>
+                    <p class="text-xs text-gray-500 mt-1">형식: 01012345678 ( - 없이 입력하세요. )</p>
                 </div>
                 
                 <button 
@@ -112,10 +111,7 @@
                         <span class="text-sm text-gray-600 block mb-1">반</span>
                         <p id="displayClass" class="font-medium text-lg"></p>
                     </div>
-                    <div class="bg-gray-50 rounded-lg p-4">
-                        <span class="text-sm text-gray-600 block mb-1">전화번호</span>
-                        <p id="displayPhone" class="font-medium text-lg"></p>
-                    </div>
+
                 </div>
             </div>
 
