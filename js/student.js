@@ -193,13 +193,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (feedbackData && feedbackData.content) {
             contentElement.innerHTML = `<p class="whitespace-pre-wrap">${feedbackData.content}</p>`;
-            if (feedbackData.updatedAt) {
-                const date = feedbackData.updatedAt.toDate();
-                dateElement.textContent = `마지막 수정: ${formatDate(date)}`;
-            }
+            
         } else {
             contentElement.innerHTML = '<p class="text-gray-500 italic">아직 피드백이 입력되지 않았습니다.</p>';
-            dateElement.textContent = '';
         }
     }
 
