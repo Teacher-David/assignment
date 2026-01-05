@@ -3,13 +3,12 @@
     'use strict';
     
     const firebaseConfig = {
-        apiKey: "AIzaSyD-h4d5P87JgeBliBhnqeY59rTnhRHJHG0",
-        authDomain: "gifted-5bd1f.firebaseapp.com",
-        projectId: "gifted-5bd1f",
-        storageBucket: "gifted-5bd1f.firebasestorage.app",
-        messagingSenderId: "248172655860",
-        appId: "1:248172655860:web:fe898a99a433efcb6e1aa1",
-        measurementId: "G-4BT9GBHP3C"
+          apiKey: "AIzaSyD3FQSeyPeI7BCQVLe5CyAym-hR7x-2G8s",
+          authDomain: "myweb-5e309.firebaseapp.com",
+          projectId: "myweb-5e309",
+          storageBucket: "myweb-5e309.firebasestorage.app",
+          messagingSenderId: "417447127215",
+          appId: "1:417447127215:web:739aa4152da19629564c5a"
     };    let retryCount = 0;
     const maxRetries = 10; // 재시도 횟수 줄임
     let initializationPromise = null;    // Firebase 초기화 함수
@@ -115,3 +114,4 @@
 
     startInitialization();
 })();
+
